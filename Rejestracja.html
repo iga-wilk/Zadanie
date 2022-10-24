@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+ <head>
+    <link rel="stylesheet" href="CSS/style.css">
+    <script src="js/funkcje.js" type="text/javascript"></script>
+  <title>Formularz</title>
+ </head>
+<body>
+    <h1>Zarejestruj sie</h1> 
+<div class="formularz">
+    
+    <form action="Formularz.php" method="post">
+        <table>
+            <tr>
+                <th> <label for="imie">Imie:</label></th>
+                <th>  <input type="text" id="imie" name="imie" required></th>
+            </tr>
+            <tr>
+                <th><label for="nazwisko"> Nazwisko:</label> </th>
+                <th> <input type="text" id="nazwisko" name="nazwisko" required> </th>
+            </tr>
+            <tr>
+                <th> <label for="email"> E-mail:</label>  </th>
+                <th>   <input type="text" id="email" name="email" required> </th>
+            </tr>
+            <tr>
+                <th> <label for="opis"> Opis:</label> </th>
+                <th> <textarea id="opis" name="opis"> </textarea></th>
+            </tr>
+            <tr>
+                <th>  <label for="stanowisko"> Stanowisko:</label> </th>
+                <th>  <select id="stanowisko" onclick="WyborStanowisko()" name="stanowisko">
+                    <option id="wybierz" value="niewybrano" disabled selected>Wybierz</option>
+                    <option id="tester" value="tester" >Tester</option>
+                    <option id="developer" value="developer" >Developer</option>
+                    <option id="project manager" value="projectmanager">Project Manager</option>
+                </select> </th>
+            </tr>
+         
+        </table>
+       
+        <div id="dodatkowyWyborTester" style="display:none ;">
+            <label for="systemyTestujace" >systemy testujace: </label>
+            <input type="text" id="systemyTestujace"  name="systemyTestujace"> <br/>
+            <label for="systemyRaportowe" >systemy raportowe: </label>
+            <input type="text" id="systemyRaportowe" name="systemyRaportowe"> <br/>
+            <label for="czyZnaSelenium" >Czy znasz Selenium?</label>
+            <input type="checkbox" id="czyZnaSelenium" value="Tak" name="czyZnaSelenium"> tak
+         
+        </div>
+        <div id="dodatkowyWyborDeveloper" style="display:none ;">
+            <label for="srodowiskaIDE" >Srodowiska IDE: </label>
+            <input type="text" id="srodowiskaIDE" name="srodowiskaIDE"> <br/>
+            <label for="jezykiProgramowania" >Jezyki programowania: </label>
+            <input type="text" id="jezykiProgramowania" name="jezykiProgramowania"> <br/>
+            <label for="czyZnaMysql" >Czy znasz MySql?</label>
+            <input type="checkbox" id="czyZnaMysql" value="Tak" name="czyZnaMysql"> tak
+            
+        </div>
+
+        <div id="dodatkowyWyborProjectManager" style="display:none ;">
+            <label for="metodologie" >Metodologie prowadzenia projektow: </label>
+            <input type="text" id="metodologie" name="metodologie"> <br/>
+            <label for="systemyRaportowe2" >systemy raportowe: </label>
+            <input type="text" id="systemyRaportowe2" name="systemyRaportowe2"> <br/>
+            <label for="czyZnaScrum" >Czy znasz SCRUM?</label>
+            <input type="checkbox" id="czyZnaScrum" value="Tak" name="czyZnaScrum"> tak <br/>
+           
+        </div>
+        <input type="submit" id="wyslij" style="display:none" name="wyslij">
+    </form>
+</div>
+
+</body>
+
+</html>
