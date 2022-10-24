@@ -1,10 +1,15 @@
-function edytujDane($id = Array())
+function edytujDane($id,$imie,$nazwisko)
 {
     var edycja = document.getElementById('edycja');
-    var edycjaImie = document.getElementById('edycjaImie');
+    var edycjaImie = document.getElementById('imie');
+    var idUzytkownika = document.getElementById('idUzytkownika');
+    var edycjaNazwisko = document.getElementById('nazwisko');
+    var edycjaOpis= document.getElementById('opis');
     edycja.style.display="block";
-    edycjaImie.value=$id['imie'];
-    
+     idUzytkownika.value=$id;
+     edycjaImie.value=$imie;
+     edycjaNazwisko.value=$nazwisko;
+
 }
 function usunDane($id)
 {
@@ -14,19 +19,17 @@ function usunDane($id)
     usun.style.display="block";  
 }
 
-function Usun($wybor)
+function Zamknij($blok)
 {
+      var usun = document.getElementById('usunDane');
+      var edycja = document.getElementById('edycja');
+      if ($blok == 1)
+      {
+        usun.style.display="none";
+      }
+      else if ($blok == 2)
+      {
+        edycja.style.display="none";
+      }
    
-    var usun = document.getElementById('usunDane');
-   
-    var idUsun = document.getElementById('idUsun').value;
-  
-    if ($wybor == 0)
-    {
-      $sql = "Delete from uzytkownik where id ="+idUsun;
-    }
-    else
-    {
-      usun.style.display="none";
-    }
 }

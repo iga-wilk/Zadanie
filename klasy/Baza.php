@@ -66,13 +66,16 @@ public function __construct($serwer, $user, $pass, $baza) {
         while($wiersz = $wynik->fetch_assoc())
           {
             $id = $wiersz['id'];
+            $imie = $wiersz['imie'];
+            $nazwisko = $wiersz['nazwisko'];
+            $opis = $wiersz['opis'];
             $tresc .= "<tr>";
-            $tresc .= "<th>". $wiersz['imie']." ".$wiersz['nazwisko']."</th>";
+            $tresc .= "<th>". $imie." ".$nazwisko."</th>";
             $tresc .= "<th>".$wiersz['email']."</th>";
-            $tresc .="<th>".$wiersz['opis']."</th>";
+            $tresc .="<th>".$opis."</th>";
             $tresc .="<th>".$this->wyszukajStanowisko($wiersz['id_stanowisko'])."</th>";
             $tresc .="<th>".$this->umiejetnosciUzytkownika($id)."</th>";
-            $tresc .="<th> <button name='edytuj' >Edytuj</button>";
+            $tresc .="<th> <button name='edytuj' onClick=edytujDane('$id','$imie','$nazwisko')>Edytuj</button>";
             $tresc .=" <button name='usun' onClick=usunDane('$id') >Usun</button></th></tr>";
           }
         $tresc .= "</table>" ; 

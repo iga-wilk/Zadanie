@@ -1,9 +1,11 @@
 .formularz
 {
-   margin-left: 500px;
-   margin-right: 100px;
+   margin-left: 50%;
+   margin-right: 30%;
+   background-color: aqua;
    
 }
 h1{
    text-align: center;
+   background-color: brown;
 }
