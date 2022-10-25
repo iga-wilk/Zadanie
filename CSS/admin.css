@@ -1,10 +1,46 @@
-
-.wyswietl table
+body
 {
-    background-color: brown;
-    border: 3px solid black;
-    border-collapse: model;
+  background-color: blanchedalmond;
 }
-body{
-    background-color:bisque;
+#tabelaUzytkownicy
+{
+    border: 1px solid black;
+    border-collapse: collapse;
+    text-align: left;
+
+}
+
+#tabelaUzytkownicy th {
+    border: 1px solid black;
+    padding: 5px;
+ }
+ .wyswietl
+ {
+   margin-left: 30%;
+   margin-top: 4%;
+ }
+
+ #usunDane 
+ {
+    
+    border: 1px solid black;
+    margin-left: 40%;
+    margin-top: 5%;
+    width: 300px;
+    text-align: center;
+ }
+ #usunDane table
+ {
+    margin-left: 60px;
+ }
+ .EdytujDane 
+ {
+
+  margin-left: 40%;
+  margin-top: 5%;
+
+}
+h1
+{
+  text-align: center;
 }

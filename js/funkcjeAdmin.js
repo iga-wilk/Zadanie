@@ -4,7 +4,8 @@ function edytujDane($id,$imie,$nazwisko)
     var edycjaImie = document.getElementById('imie');
     var idUzytkownika = document.getElementById('idUzytkownika');
     var edycjaNazwisko = document.getElementById('nazwisko');
-    var edycjaOpis= document.getElementById('opis');
+    var usun = document.getElementById('usunDane');
+    usun.style.display="none";
     edycja.style.display="block";
      idUzytkownika.value=$id;
      edycjaImie.value=$imie;
@@ -15,6 +16,9 @@ function usunDane($id)
 {
     var usun = document.getElementById('usunDane');
     var idUsun = document.getElementById('idUsun');
+    var edycja = document.getElementById('edycja');
+    edycja.style.display = "none";
+  
     idUsun.value=$id;
     usun.style.display="block";  
 }
@@ -23,13 +27,13 @@ function Zamknij($blok)
 {
       var usun = document.getElementById('usunDane');
       var edycja = document.getElementById('edycja');
-      if ($blok == 1)
+      switch($blok)
       {
-        usun.style.display="none";
+        case 1:  usun.style.display="none";break;
+        case 2:  edycja.style.display="none";break;
+        default: usun.style.display="none";
+                edycja.style.display="none";
       }
-      else if ($blok == 2)
-      {
-        edycja.style.display="none";
-      }
+      
    
 }

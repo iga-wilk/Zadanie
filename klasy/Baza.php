@@ -55,7 +55,8 @@ public function __construct($serwer, $user, $pass, $baza) {
     $tresc = "";
     if ($wynik->num_rows > 0)
     {
-      $tresc = "<table> <tr>".
+      $tresc .= "<h1>Użytkownicy </h1>";
+      $tresc .= "<table id='tabelaUzytkownicy'> <tr>".
                 "<th> Imie i nazwisko</th>".
                 "<th> E-mail </th>".
                 "<th> Opis </th>".
@@ -98,10 +99,11 @@ public function __construct($serwer, $user, $pass, $baza) {
     }
     else return 0;
   }
-
-  public function dodajUzytkownika($sql,$email)
+  public function dodajUzytkownika($imie, $nazwisko, $email, $opis, $id_stanowisko)
   {
-    $this->mysqli->query($sql);
+    $sql = $this->mysqli->prepare("insert into uzytkownik(imie,nazwisko,email,opis,id_stanowisko) values (?,?,?,?,?)");
+    $sql->bind_param("ssssi",$imie,$nazwisko,$email,$opis,$id_stanowisko);
+    $sql->execute();
     $wyszukanieUzytkownika ="Select id from uzytkownik WHERE email='$email'";
     $idNowegoUzytkownika = $this->mysqli->query($wyszukanieUzytkownika);
     if ($idNowegoUzytkownika->num_rows > 0)
@@ -118,6 +120,25 @@ public function __construct($serwer, $user, $pass, $baza) {
     }
     
   }
+  // public function dodajUzytkownika($sql,$email)
+  // {
+  //   $this->mysqli->query($sql);
+  //   $wyszukanieUzytkownika ="Select id from uzytkownik WHERE email='$email'";
+  //   $idNowegoUzytkownika = $this->mysqli->query($wyszukanieUzytkownika);
+  //   if ($idNowegoUzytkownika->num_rows > 0)
+  //   {
+  //       while($wiersz = $idNowegoUzytkownika->fetch_assoc())
+  //         {
+  //           return $wiersz['id'];
+  //         }
+  //   }
+  //   else
+  //   {
+  //     echo "Brak uzytkownikow";
+  //     return -1;
+  //   }
+    
+  // }
 
   public function dodajUmiejetnosci($sql)
   {
@@ -126,6 +147,12 @@ public function __construct($serwer, $user, $pass, $baza) {
 
   public function usunUzytkownika($sql)
   {
+    $this->mysqli->query($sql);
+  }
+
+  public function EdytujDane($id,$imie,$nazwisko)
+  {
+    $sql = "UPDATE uzytkownik SET imie='$imie', nazwisko='$nazwisko' WHERE id='$id'";
     $this->mysqli->query($sql);
   }
 

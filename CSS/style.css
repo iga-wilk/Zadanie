@@ -1,11 +1,16 @@
 .formularz
 {
-   margin-left: 50%;
-   margin-right: 30%;
-   background-color: aqua;
-   
+   margin-left: 40%;
+   margin-right: 20%;
 }
 h1{
-   text-align: center;
-   background-color: brown;
+   margin-left: 42%;
+   margin-right: 20%;
+}
+#formularz
+{
+   border: 1px solid black;
+}
+body{
+   background-color: beige;
 }
