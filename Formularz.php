@@ -15,10 +15,18 @@ if (filter_input(INPUT_POST, "wyslij")){
     {
  //   $sql = "insert into uzytkownik (imie,nazwisko,email,opis,id_stanowisko) values('$imie','$nazwisko','$email','$opis',$stanowisko)";
    //    $id_Uzytkownika= $db->dodajUzytkownika($sql,$email);
-   $id_Uzytkownika= $db->dodajUzytkownika($imie, $nazwisko, $email, $opis, $stanowisko);
+        $id_Uzytkownika= $db->dodajUzytkownika($imie, $nazwisko, $email, $opis, $stanowisko);
        $dodajUmiejetnosci = $uzytkownik->umiejetnosciUzytkownika($stanowisko,$id_Uzytkownika);
       $db->dodajUmiejetnosci($dodajUmiejetnosci);
-       echo "Dodano do bazy";    
+       echo "Dodano do bazy";   
+    //    $subject = "Twoje dane";
+    //    $message = "Oto twoje dane: ".$imie." ".$nazwisko." ".$email;
+    //    $headers = array(
+    //     'From' => 'mail@gmail.com',
+    //     'Reply-To' => 'mail@gmail.com',
+    //     'X-Mailer' => 'PHP/' . phpversion()
+    // );
+    //    mail($email, $subject, $message, $headers);
     }
     else
     {
